@@ -13,7 +13,8 @@ body>header .logo {
 	font-size: 24pt;	
 }
 
-body>header a {
+body>header a,
+body>header a:visited {
     color:red;
     text-decoration: none;
 }
