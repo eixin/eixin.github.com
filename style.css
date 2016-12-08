@@ -11,7 +11,8 @@ body {
 }
 
 body>header .logo {
-	font-size: 24pt;	
+	font-size: 24pt;
+  	display: inline-block;
 }
 
 body>header a,
@@ -92,10 +93,8 @@ nav {
 }
 
 nav ul {
-	display: table-cell;
-	vertical-align: bottom;
 	float: right;
-	padding: 0;
+	padding: 5px 0 0 0;
 	margin: 0;
 }
 nav a,
