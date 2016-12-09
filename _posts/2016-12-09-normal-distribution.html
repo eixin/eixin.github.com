@@ -1,0 +1,145 @@
+---
+layout: post
+title: Normal distribution
+category: Meta
+
+excerpt: Normal distribution
+
+---
+
+<div class="content" style="width: auto; height: 450px;">
+</div>	
+  <script src="/scripts/d3.v4.js"></script>
+  <style>
+  .bar rect {
+    fill: steelblue;
+  }
+
+  .bar text {
+    fill: #fff;
+    font: 10px sans-serif;
+  }
+
+  </style>
+  <script>
+    var margin = {top: 40, right: 10, bottom: 20, left: 10},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom,
+        heightChart = height * 3 / 4,
+        heightMirrored = height / 4,
+        n = 1000;
+
+    var formatCount = d3.format(",.0f");
+    
+    var values = d3.range(0, n).map(d3.randomNormal());
+
+    var xScale = d3.scaleLinear()
+        .domain([-3, 3])
+        .range([0, width]);
+    
+    var bins = d3.histogram()
+        .domain(xScale.domain())
+        .thresholds(xScale.ticks(20))
+        (values);
+    
+    var yScale = d3.scaleLinear()
+        .domain([0, d3.max(bins, function(x) { return x.length})])
+        .range([heightChart, 0]);
+
+    var yMirrored = d3.scaleLinear()
+        .domain(yScale.domain())
+        .range([0, heightMirrored]);
+
+    var svg = d3.select(".content").append("svg")
+		.attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom) )
+    	.attr("preserveAspectRatio", /*"xMinYMin"*/ "xMidYMid meet")		
+        /*.attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)*/
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var gradient = svg.append("defs")
+      .append("linearGradient")
+        .attr("id", "gradient")
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "0%")
+        .attr("y2", "100%")
+        .attr("spreadMethod", "pad");
+
+    gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "white")
+        .attr("stop-opacity", 0.5);
+
+    gradient.append("stop")
+        .attr("offset", "30%")
+        .attr("stop-color", "white")
+        .attr("stop-opacity", 0.7);
+
+    gradient.append("stop")
+        .attr("offset", "60%")
+        .attr("stop-color", "white")
+        .attr("stop-opacity", 0.9);
+
+    gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "white")
+        .attr("stop-opacity", 1);
+
+
+
+    var enterSelection = svg.selectAll(".bar")
+
+        .data(bins)
+
+        .enter();
+    
+    var bar = enterSelection
+        .append("g")
+        .attr("class", "bar")
+        .attr("transform", function(d) { return "translate(" + xScale(d.x0) + "," + yScale(d.length) + ")"; })
+
+    bar.append("rect")
+        .attr("x", 1)
+        .attr("width", xScale(bins[0].x1) - xScale(bins[0].x0) - 1)
+        .attr("height", function(d) { return heightChart - yScale(d.length); });
+
+    var barMirrored = enterSelection
+        .append("g")
+        .attr("class", "bar")
+        .attr("transform", function(d) { return "translate(" + xScale(d.x0) + "," + heightChart + ")"; })
+
+    barMirrored.append("rect")
+        .attr("x", 1)
+        .attr("width", xScale(bins[0].x1) - xScale(bins[0].x0) - 1)
+        .attr("height", function(d) { return heightChart - yScale(d.length); });
+
+    svg.append("g").append("rect")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", heightMirrored + margin.bottom)
+        .attr("transform", function(d) { return "translate(0," + heightChart + ")"; })
+        .style("fill", "url(#gradient)");
+
+    svg.append("g").append("rect")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", 1000)
+        .attr("transform", function(d) { return "translate(0," + (heightChart + heightMirrored + margin.bottom - 1) + ")"; })
+        .style("fill", "white");
+
+    bar.append("text")
+        .attr("dy", ".75em")
+        .attr("y", 6)
+        .attr("x", (xScale(bins[0].x1) - xScale(bins[0].x0)) / 2)
+        .attr("text-anchor", "middle")
+        .text(function(d) { return formatCount(d.length); });
+
+    svg.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + heightChart + ")")
+        .call(d3.axisBottom(xScale)/*.ticks(20, ",.2f")*/);
+
+  </script>
+<p></p>
+<p></p>
+<p></p>
