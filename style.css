@@ -17,7 +17,8 @@ body>header .logo {
 
 body>header a,
 body>header a:visited {
-    color:red;
+    /*color:red;*/
+  	color: hsl(113, 76%, 33%);
     text-decoration: none;
 }
 
@@ -77,7 +78,7 @@ td {
 }
 
 a:hover {
-    color: #696969;
+    color: #56a3d8;
 }
 
 main {
@@ -97,7 +98,7 @@ nav ul {
 	padding: 5px 0 0 0;
 	margin: 0;
 }
-nav a,
+/*nav a,
 nav a:visited,
 nav a:active {
     color: blue;
@@ -105,7 +106,7 @@ nav a:active {
 
 nav a:hover {
     color: #696969;
-}
+}*/
 
 nav li {
 /*    margin-left: -25px;
@@ -133,12 +134,12 @@ article h2>a,
 article h2>a:visited,
 article h2>a:active {
     text-decoration: none;
-    color: blue;
+    color: steelblue;
 }
 
-article h2>a:hover {
+/*article h2>a:hover {
     color: #696969;
-}
+}*/
 
 article .entry {
 }
