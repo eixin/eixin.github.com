@@ -144,6 +144,11 @@ article h2>a:active {
     color: #696969;
 }*/
 
+article .date {
+  color: #c0c0c0;
+  font-family: 'PT Sans', sans-serif;
+}
+
 article .entry {
 }
 
