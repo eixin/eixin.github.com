@@ -5,11 +5,18 @@
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <style type="text/css">
+	
+	#map {
+		-moz-transform:scale(0.5);
+		-webkit-transform:scale(0.5, 0.5);
+		-ms-transform:scale(0.5, 0.5);
+		transform: scale(0.5, 0.5);
 
-    img {
-        border: none;
-        position: relative;
-    }
+		-moz-transform-origin: 0 0;	
+		-webkit-transform-origin: 0 0;	
+		-ms-transform-origin: 0 0;	
+		transform-origin: 0 0;	
+	}
 
     h1, h2, h3, h4, h5, h6, p {
         font-family: Georgia, "Times New Roman", Times, serif;
@@ -17,6 +24,7 @@
         margin-bottom: 5px;
         margin-top: 5px;
     }
+	
 </style>
 
 <script type="text/javascript">
@@ -24,6 +32,11 @@
 
   $(function() {
     $( "img" ).draggable();
+	var els = $( "img" ); 
+	for (var i = 0; i < els.length; i++)
+	{
+		console.log(parseInt(els[i].style.left) / 2, parseInt(els[i].style.top) / 2);
+	}
   });
 
 </script>
@@ -44,7 +57,7 @@
     <h1>Coins of Europe and Asia</h1>
     <h6>(excluding <a href="http://en.wikipedia.org/wiki/Euro_coins#Specification">euro</a>)</h6>
 
-    <div style="width:100%;height:90%;overflow: scroll;">
+    <div style="width:100%; height:908px; overflow-x: scroll; overflow-y: hidden">
     <div id="map" style="background-image:url(img/bg.png);width:2488px;height:1816px;">
         <a href="http://en.wikipedia.org/wiki/Bulgarian_lev#Coins">
             <img alt="Bulgaria" src="img/bulgary.png" style="left:382px; top:551px;"></a>
@@ -79,8 +92,8 @@
         <a href="http://en.wikipedia.org/wiki/Coins_of_the_Ukrainian_hryvnia">
             <img alt="Ukraine" src="img/ukraine.png" style="left:-1196px; top:401px;"></a>
     </div>
-    </div>
 
+	</div>
     <p>Click coins to get to a Wikipedia page describing them. Improvements, suggestions and other feedback is welcome: <a href="mailto:nixie.ua@gmail.com?subject=Coins">nixie.ua@gmail.com</a></p>
 
 </body>

@@ -152,12 +152,12 @@ article .date {
 article .entry {
 }
 
-article .entry img {
+/*article .entry img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-}
+}*/
 
 article header span {
 	margin-top: -10px;
