@@ -140,6 +140,9 @@ article h2>a:active {
     color: steelblue;
 }
 
+article a {
+	color: steelblue;
+}
 /*article h2>a:hover {
     color: #696969;
 }*/
