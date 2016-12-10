@@ -135,7 +135,6 @@ article {
 }
 
 article h2>a,
-article h2>a:visited,
 article h2>a:active {
     text-decoration: none;
     color: steelblue;
