@@ -1,6 +1,335 @@
 ---
 published: false
 ---
-## A New Post
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+		
 
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+			AmCharts.makeChart("chartdiv1",
+				{
+					"type": "serial",
+					"categoryField": "Country",
+					"rotate": true,
+					"startDuration": 1,
+					"categoryAxis": {
+						"gridPosition": "start",
+						"position": "right",
+						"tickLength": 0,
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"balloonText": "[[title]] of [[category]]:[[value]]",
+							"fillAlphas": 1,
+							"id": "AmGraph-1",
+							"title": "GDP",
+							"lineColor": "red",
+							"type": "column",
+							"valueField": "GDP"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"position": "bottom",
+							"reversed": true,
+							"title": ""
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"titles": [
+						{
+							"id": "Title-1",
+							"size": 15,
+							"text": "GDP per capita"
+						}
+					],
+					"dataProvider": [
+						{
+							"Country": "Norway",
+							"GDP": "99557.73"
+						},
+						{
+							"Country": "Denmark",
+							"GDP": "56210.23"
+						},
+						{
+							"Country": "Austria",
+							"GDP": "47226.2"
+						},
+						{
+							"Country": "Finland",
+							"GDP": "46178.59"
+						},
+						{
+							"Country": "Netherlands",
+							"GDP": "46054.41"
+						},
+						{
+							"Country": "Belgium",
+							"GDP": "43412.53"
+						},
+						{
+							"Country": "Germany",
+							"GDP": "41514.17"
+						},
+						{
+							"Country": "France",
+							"GDP": "39771.84"
+						},
+						{
+							"Country": "Italy",
+							"GDP": "33048.75"
+						},
+						{
+							"Country": "Spain",
+							"GDP": "29195.38"
+						},
+						{
+							"Country": "Greece",
+							"GDP": "22082.89"
+						},
+						{
+							"Country": "Slovenia",
+							"GDP": "22000.51"
+						},
+						{
+							"Country": "Cyprus",
+							"GDP": "20355.25"
+						},
+						{
+							"Country": "Portugal",
+							"GDP": "20182.4"
+						},
+						{
+							"Country": "Czech Rep",
+							"GDP": "18607.71"
+						},
+						{
+							"Country": "Slovakia",
+							"GDP": "16931.63"
+						},
+						{
+							"Country": "Lithuania",
+							"GDP": "14096.94"
+						},
+						{
+							"Country": "Russia",
+							"GDP": "14037.03"
+						},
+						{
+							"Country": "Latvia",
+							"GDP": "13983.96"
+						},
+						{
+							"Country": "Croatia",
+							"GDP": "13227.47"
+						},
+						{
+							"Country": "Poland",
+							"GDP": "12707.85"
+						},
+						{
+							"Country": "Hungary",
+							"GDP": "12621.74"
+						},
+						{
+							"Country": "Turkey",
+							"GDP": "10666.06"
+						},
+						{
+							"Country": "Bulgaria",
+							"GDP": "6986.04"
+						},
+						{
+							"Country": "Belarus",
+							"GDP": "6685.02"
+						},
+						{
+							"Country": "Bosnia & Herz",
+							"GDP": "4446.52"
+						},
+						{
+							"Country": "Ukraine",
+							"GDP": "3867.02"
+						},
+						{
+							"Country": "Georgia",
+							"GDP": "3508.41"
+						}
+					]
+				}
+			);
+			AmCharts.makeChart("chartdiv2",
+				{
+					"type": "serial",
+					"categoryField": "Country",
+					"rotate": true,
+					"startDuration": 1,
+					"categoryAxis": {
+						"gridPosition": "start",
+						"axisAlpha": 0,
+                                                labelFunction: function() { return '';}
+					},
+					"trendLines": [
+					{
+						"finalCategory": "Georgia",
+						"finalValue": 73,
+						"id": "TrendLine-1",
+						"initialCategory": "Norway",
+						"initialValue": 33,
+						"lineColor": "black"
+						}
+					],
+					"graphs": [
+						{
+							"balloonText": "[[title]] in [[category]]:[[value]]%",
+							"fillAlphas": 1,
+							"id": "AmGraph-1",
+							"title": "Importance of religion",
+							"lineColor": "steelblue",
+							"type": "column",
+							"valueField": "Importance"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"minimum": 0,
+							"position": "bottom",
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"titles": [
+						{
+							"id": "Title-1",
+							"size": 15,
+							"text": "Importance of religion"
+						}
+					],
+					"dataProvider": [
+						{
+							"Country": "Norway",
+							"Importance": "20.5"
+						},
+						{
+							"Country": "Denmark",
+							"Importance": "18.0"
+						},
+						{
+							"Country": "Austria",
+							"Importance": "55.0"
+						},
+						{
+							"Country": "Finland",
+							"Importance": "28.0"
+						},
+						{
+							"Country": "Netherlands",
+							"Importance": "24.5"
+						},
+						{
+							"Country": "Belgium",
+							"Importance": "33.0"
+						},
+						{
+							"Country": "Germany",
+							"Importance": "40.5"
+						},
+						{
+							"Country": "France",
+							"Importance": "29.5"
+						},
+						{
+							"Country": "Italy",
+							"Importance": "71.5"
+						},
+						{
+							"Country": "Spain",
+							"Importance": "49.5"
+						},
+						{
+							"Country": "Greece",
+							"Importance": "71.5"
+						},
+						{
+							"Country": "Slovenia",
+							"Importance": "47.0"
+						},
+						{
+							"Country": "Cyprus",
+							"Importance": "75.0"
+						},
+						{
+							"Country": "Portugal",
+							"Importance": "71.5"
+						},
+						{
+							"Country": "Czech Rep",
+							"Importance": "20.5"
+						},
+						{
+							"Country": "Slovakia",
+							"Importance": "46.5"
+						},
+						{
+							"Country": "Lithuania",
+							"Importance": "41.5"
+						},
+						{
+							"Country": "Russia",
+							"Importance": "33.0"
+						},
+						{
+							"Country": "Latvia",
+							"Importance": "96.5"
+						},
+						{
+							"Country": "Croatia",
+							"Importance": "66.5"
+						},
+						{
+							"Country": "Poland",
+							"Importance": "74.5"
+						},
+						{
+							"Country": "Hungary",
+							"Importance": "39.0"
+						},
+						{
+							"Country": "Turkey",
+							"Importance": "89.5"
+						},
+						{
+							"Country": "Bulgaria",
+							"Importance": "87.5"
+						},
+						{
+							"Country": "Belarus",
+							"Importance": "33.0"
+						},
+						{
+							"Country": "Bosnia & Herz",
+							"Importance": "66.0"
+						},
+						{
+							"Country": "Ukraine",
+							"Importance": "45.5"
+						},
+						{
+							"Country": "Georgia",
+							"Importance": "80.0"
+						}
+					]
+				}
+			);
+		</script>
+		<span id="chartdiv1" style="display:inline-block; width: 450px; height: 800px; background-color: #FFFFFF;" ></span>
+		<span id="chartdiv2" style="display:inline-block; width: 400px; height: 800px; background-color: #FFFFFF;" ></span>
