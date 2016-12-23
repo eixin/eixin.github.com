@@ -1,3 +1,5 @@
+---
+---
 @import url(//fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
 
 body {
@@ -7,19 +9,27 @@ body {
 	background-color: white;
 	max-width: 900px;
 	padding: 5px 10px;
-	margin: 1em auto 1em auto	
-}
-
-body>header .logo {
-	font-size: 24pt;
-  	display: inline-block;
-}
-
-body>header a,
-body>header a:visited {
-    /*color:red;*/
-  	color: hsl(113, 76%, 33%);
-    text-decoration: none;
+	margin: 1em auto 1em auto
+	
+	>header {
+		.logo {
+			font-size: 24pt;
+		  	display: inline-block;
+		}
+		
+		a, a:visited {
+		  	color: hsl(113, 76%, 33%);
+		    text-decoration: none;
+		}		
+	}
+	
+	>footer {
+		clear: both;
+		width: 100%;
+	
+		border-top: 1px solid #cacaca;
+		/*box-shadow: 0 -4px 6px -6px #888;*/
+	}
 }
 
 h1 {
@@ -95,13 +105,24 @@ nav {
 	border-bottom:1px solid #cacaca;
 	/*box-shadow: 0 1px 0 rgba(255,255,255,.4),0 0 10px rgba(0,0,0,.1);	*/
 	/*box-shadow: 0 4px 6px -6px #888;*/
+	ul {
+		float: right;
+		padding: 5px 0 0 0;
+		margin: 0;
+	}
+	
+	li {
+	/*    margin-left: -25px;
+	    list-style: none;*/
+		padding: 0 5px;
+		display: inline;
+		
+		i {
+			display: none;
+		}
+	}	
 }
 
-nav ul {
-	float: right;
-	padding: 5px 0 0 0;
-	margin: 0;
-}
 /*nav a,
 nav a:visited,
 nav a:active {
@@ -112,47 +133,34 @@ nav a:hover {
     color: #696969;
 }*/
 
-nav li {
-/*    margin-left: -25px;
-    list-style: none;*/
-	padding: 0 5px;
-	display: inline;
-}
-
-nav li i {
-	display: none;
-}
-
-body>footer {
-	clear: both;
-	width: 100%;
-	
-	border-top: 1px solid #cacaca;
-	/*box-shadow: 0 -4px 6px -6px #888;*/
-}
-
 article {
-}
-
-article h2>a,
-article h2>a:active {
-    text-decoration: none;
-    color: steelblue;
-}
-
-article a {
-	color: steelblue;
-}
-/*article h2>a:hover {
-    color: #696969;
-}*/
-
-article .date {
-  color: #c0c0c0;
-  font-family: 'PT Sans', sans-serif;
-}
-
-article .entry {
+	h2>a,
+	h2>a:active {
+	    text-decoration: none;
+	    color: steelblue;
+	}
+	
+	a {
+		color: steelblue;
+	}
+	
+	.date {
+	  color: #c0c0c0;
+	  font-family: 'PT Sans', sans-serif;
+	}
+	
+	.entry {
+	}
+	
+	header span {
+		margin-top: -10px;
+		margin-bottom: -3px;
+		margin-left: 5px;
+	}
+	
+	header h2 {
+	    margin-bottom: 3px;
+	}
 }
 
 /*article .entry img {
@@ -161,16 +169,6 @@ article .entry {
     margin-right: auto;
     width: 100%;
 }*/
-
-article header span {
-	margin-top: -10px;
-	margin-bottom: -3px;
-	margin-left: 5px;
-}
-
-article header h2 {
-    margin-bottom: 3px;
-}
 
 section address {
     margin-left: 15px;
