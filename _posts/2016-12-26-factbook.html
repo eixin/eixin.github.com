@@ -1,0 +1,173 @@
+---
+layout: post
+title: World Map
+category: Graph
+excerpt: CIA World Factbook
+---
+
+  <style>
+    .names {
+      fill: none;
+      stroke: #fff;
+      stroke-linejoin: round;
+    }
+
+    .map {
+      fill: #fff;
+    }
+
+    .details {
+      color: white;
+    }
+
+    .country {
+      stroke: #fff;
+      stroke-width: .25px;
+      stroke-linejoin: round;
+    }
+
+    .country_selected {
+      stroke: #fff;
+      stroke-width: .8px;
+      stroke-linejoin: round;
+    }
+	
+	div.tooltip {
+	  position: absolute;
+	  text-align: center;
+	  width: 80px;
+	  height: 32px;
+	  padding: 4px;
+	  font: 12px 'PT Sans' sans-serif;
+	  background: white;	  
+	  border: 1px solid gray;
+	  border-radius: 2px;
+	  pointer-events: none;
+	}
+	
+  </style>
+  
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script>
+    var format = d3.format(",");
+
+    var margin = { top: 0, right: 0, bottom: 0, left: 0 },
+      width = 900,
+      height = 500;
+
+    var color = d3.scaleThreshold()
+      .domain([10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000])
+      .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,81,156)", "rgb(8,48,107)", "rgb(3,19,43)"]);
+
+    var path = d3.geoPath();
+
+	var toolTip = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+	
+    var svg = d3.select("body")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height).call(d3.zoom().on("zoom", function() {
+        // 
+        map.attr("transform", d3.event.transform);
+      }));
+    
+    var map = svg
+      .append('g');
+
+    map.append('rect')
+      .attr('class', 'map')
+      .attr("width", width - margin.left - margin.right)
+      .attr("height", height - margin.top - margin.bottom)
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      ;
+
+
+    var projection = d3.geoMercator()
+      .scale(143)
+      .translate([width / 2, height / 1.5]);
+
+    var path = d3.geoPath().projection(projection);
+
+    queue()
+      .defer(d3.json, "/resources/world-50m.json")
+      .defer(d3.tsv, "/resources/world-population.tsv")
+      .defer(d3.tsv, "/resources/world-country-names.tsv")
+      .await(ready);
+
+    function ready(error, data, population, names) {
+      var populationById = {};
+      var countryNames = {};
+      var populationNames = {};
+      
+      names.forEach(function (d) { countryNames[d.name] = d.id; });
+      population.forEach(function (d) {
+        populationNames[d.country] = true;
+      });
+      
+      console.log("Countries 1");
+      population.forEach(function (d) {
+        if (!countryNames[d.country]) {
+          console.log(d.country);
+        }
+      });
+
+      population.forEach(function (d) { populationById[countryNames[d.country]] = { country: d.country, value: +d.value}; });
+
+      console.log("Countries 2");
+      names.forEach(function (d) {
+        if (!populationNames[d.name]) {
+          console.log(d.name);
+        }
+      });
+      
+      var countries = window.topojson.feature(data, data.objects.countries).features,
+          neighbors = window.topojson.neighbors(data.objects.countries.geometries);
+
+	  countries.forEach(function (c) {
+		  var entry = populationById[c.id];
+		  if (entry) {
+		    c.value = entry.value;
+			c.country = entry.country;
+		  }
+	  });
+
+      map.append("g")
+        .attr("class", "countries")
+        .selectAll(".country")
+        .data(countries)
+        .enter()
+        .append("path")
+        .attr("class", "country")
+        .attr("d", path)
+        .attr("r_id", function(d) { return d.id; })
+        .style("fill", function (d) { var entry = populationById[d.id]; return color(entry ? entry.value : 0); })
+        .on('mouseover', function (d) {		  
+		  if (d.country) {
+	  		  toolTip.transition()
+	           	.duration(200)
+	           	.style("opacity", .9);
+	  		  toolTip.html(d.country + ": " + d.value)
+	              .style("left", (d3.event.pageX) + "px")
+	              .style("top", (d3.event.pageY - 28) + "px");
+		  }
+			
+          d3.select(this)
+            .classed("country_selected", true);
+        })
+        .on('mouseout', function (d) {
+		  if (d.country) {
+		      toolTip.transition()
+			  	.duration(200)
+			    .style("opacity", 0);
+		  }				
+          d3.select(this)
+            .classed("country_selected", null);
+        });
+
+    }
+
+  </script>
