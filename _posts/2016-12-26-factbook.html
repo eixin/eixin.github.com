@@ -34,11 +34,11 @@ excerpt: CIA World Factbook
 	
 	div.tooltip {
 	  position: absolute;
-	  text-align: center;
-	  width: 80px;
-	  height: 32px;
+	  text-align: left;
+	  width: auto;
+	  height: 2.5em;
 	  padding: 4px;
-	  font: 12px 'PT Sans' sans-serif;
+	  font: 12px 'PT Sans',sans-serif;
 	  background: white;	  
 	  border: 1px solid gray;
 	  border-radius: 2px;
@@ -150,7 +150,7 @@ excerpt: CIA World Factbook
 	  		  toolTip.transition()
 	           	.duration(200)
 	           	.style("opacity", .9);
-	  		  toolTip.html(d.country + ": " + d.value)
+	  		  toolTip.html("<b>" + d.country + "</b><br/>" + format(d.value))
 	              .style("left", (d3.event.pageX) + "px")
 	              .style("top", (d3.event.pageY - 28) + "px");
 		  }
