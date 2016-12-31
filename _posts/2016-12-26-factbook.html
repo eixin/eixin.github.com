@@ -26,24 +26,34 @@ excerpt: CIA World Factbook
       stroke-linejoin: round;
     }
 
-    .country_selected {
+    .country-selected {
       stroke: #fff;
       stroke-width: .8px;
       stroke-linejoin: round;
     }
 	
-	div.tooltip {
-	  position: absolute;
-	  text-align: left;
-	  width: auto;
-	  height: 2.5em;
-	  padding: 4px;
-	  font: 12px 'PT Sans',sans-serif;
-	  background: white;	  
-	  border: 1px solid gray;
-	  border-radius: 2px;
-	  pointer-events: none;
-	}
+  	.legend .cell-color {
+  		stroke: black;
+  		stroke-width: .1px;
+  	}
+
+  	.legend .cell-text {
+  		color: black;
+    	font: 8pt 'PT Sans',sans-serif;
+  	}
+	
+  	div.tooltip {
+  	  position: absolute;
+  	  text-align: left;
+  	  width: auto;
+  	  height: 2.7em;
+  	  padding: 4px;
+  	  font: 10pt 'PT Sans',sans-serif;
+  	  background: white;	  
+  	  border: 1px solid gray;
+  	  border-radius: 2px;
+  	  pointer-events: none;
+  	}
 	
   </style>
   
@@ -53,7 +63,7 @@ excerpt: CIA World Factbook
   <script>
     var format = d3.format(",");
 
-    var margin = { top: 0, right: 0, bottom: 0, left: 0 },
+    var margin = { top: 0, right: 60, bottom: 0, left: 0 },
       width = 900,
       height = 500;
 
@@ -63,7 +73,7 @@ excerpt: CIA World Factbook
 
     var path = d3.geoPath();
 
-	var toolTip = d3.select("body").append("div")
+	  var toolTip = d3.select("body").append("div")
       .attr("class", "tooltip")
       .style("opacity", 0);
 	
@@ -82,10 +92,10 @@ excerpt: CIA World Factbook
       .attr('class', 'map')
       .attr("width", width - margin.left - margin.right)
       .attr("height", height - margin.top - margin.bottom)
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      ;
-
-
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	  
+    legend(color);
+	
     var projection = d3.geoMercator()
       .scale(143)
       .translate([width / 2, height / 1.5]);
@@ -98,6 +108,52 @@ excerpt: CIA World Factbook
       .defer(d3.tsv, "/resources/world-country-names.tsv")
       .await(ready);
 
+    function legend(scale) {
+      var legend = svg.append("g")
+	      .attr("class", "legend")
+	      .attr("transform", "translate(" + (width - margin.right) + "," + margin.top + ")");
+
+      var legendRect = legend.append("rect")
+  	    .style("opacity", 0.8)
+  	    .style("fill", "white")
+  	    .attr("width", margin.right)
+  	    .attr("height", height);
+		
+  	  var textFormatSI = d3.format(".2s");
+      
+      function formatAbbreviation(x) {
+        var s = textFormatSI(x);
+        s = s.replace(".0", ""); // does not make sense
+        switch (s[s.length - 1]) {
+          case "G": return s.slice(0, -1) + "B";
+          case "k": return s.slice(0, -1) + "K";
+        }
+        return s;
+      }
+    
+      var cellHeight = 10;
+      var cellColorWidth = 20;
+      var marginTop = 200;
+	  
+      legend.selectAll(".cell-color")
+        .data(color.range())
+    	  .enter()
+        .append("rect")
+        .attr("class", "cell-color")
+        .style("fill", function(d) { return d;})
+        .attr("transform", function(d, i) { return "translate(5," + (marginTop + i * (cellHeight + 2)) + ")"})
+        .attr("width", cellColorWidth)      
+        .attr("height", cellHeight);
+		
+      legend.selectAll(".cell-text")
+        .data([0].concat(color.domain()))
+    	  .enter()
+        .append("text")
+        .attr("class", "cell-text")
+        .attr("transform", function(d, i) { return "translate(30," + (marginTop + 3 + i * (cellHeight + 2)) + ")"})
+        .text(function(d) { return formatAbbreviation(d);});
+    }
+	
     function ready(error, data, population, names) {
       var populationById = {};
       var countryNames = {};
@@ -127,13 +183,13 @@ excerpt: CIA World Factbook
       var countries = window.topojson.feature(data, data.objects.countries).features,
           neighbors = window.topojson.neighbors(data.objects.countries.geometries);
 
-	  countries.forEach(function (c) {
-		  var entry = populationById[c.id];
-		  if (entry) {
-		    c.value = entry.value;
-			c.country = entry.country;
-		  }
-	  });
+  	  countries.forEach(function (c) {
+  		  var entry = populationById[c.id];
+  		  if (entry) {
+  		    c.value = entry.value;
+  			c.country = entry.country;
+  		  }
+  	  });
 
       map.append("g")
         .attr("class", "countries")
@@ -146,26 +202,26 @@ excerpt: CIA World Factbook
         .attr("r_id", function(d) { return d.id; })
         .style("fill", function (d) { var entry = populationById[d.id]; return color(entry ? entry.value : 0); })
         .on('mouseover', function (d) {		  
-		  if (d.country) {
-	  		  toolTip.transition()
-	           	.duration(200)
-	           	.style("opacity", .9);
-	  		  toolTip.html("<b>" + d.country + "</b><br/>" + format(d.value))
-	              .style("left", (d3.event.pageX) + "px")
-	              .style("top", (d3.event.pageY - 28) + "px");
-		  }
+    		  if (d.country) {
+    	  		  toolTip.transition()
+    	           	.duration(200)
+    	           	.style("opacity", .9);
+    	  		  toolTip.html("<b>" + d.country + "</b><br/>" + format(d.value))
+    	              .style("left", (d3.event.pageX) + "px")
+    	              .style("top", (d3.event.pageY - 28) + "px");
+    		  }
 			
           d3.select(this)
-            .classed("country_selected", true);
+            .classed("country-selected", true);
         })
         .on('mouseout', function (d) {
-		  if (d.country) {
-		      toolTip.transition()
-			  	.duration(200)
-			    .style("opacity", 0);
-		  }				
+    		  if (d.country) {
+    		      toolTip.transition()
+    			  	.duration(200)
+    			    .style("opacity", 0);
+    		  }				
           d3.select(this)
-            .classed("country_selected", null);
+            .classed("country-selected", null);
         });
 
     }
