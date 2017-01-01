@@ -86,6 +86,10 @@ td {
     padding-left: 20px;
 }
 
+a {
+	color: steelblue;
+}
+
 a:hover {
     color: #56a3d8;
 }
@@ -123,10 +127,6 @@ article {
 	    color: steelblue;
 	}
 	
-	a {
-		color: steelblue;
-	}
-	
 	.date {
 	  color: #c0c0c0;
 	  font-family: 'PT Sans', sans-serif;
@@ -152,10 +152,14 @@ section address {
 
 #paginator {
     padding: 10px;
-}
-
-#paginator a {
-    text-decoration: none;
+    
+    a {
+      text-decoration: none;
+    }
+    
+    a:visited {
+      	color: steelblue;
+    }    
 }
 
 .more {
