@@ -1,0 +1,225 @@
+rank	country	value
+1	Monaco	89.5
+2	Singapore	85
+3	Japan	85
+4	Macau	84.5
+5	San Marino	83.3
+6	Iceland	83
+7	Hong Kong	82.9
+8	Andorra	82.8
+9	Switzerland	82.6
+10	Guernsey	82.5
+11	Israel	82.4
+12	Korea, South	82.4
+13	Luxembourg	82.3
+14	Italy	82.2
+15	Australia	82.2
+16	Sweden	82.1
+17	Liechtenstein	81.9
+18	Jersey	81.9
+19	Canada	81.9
+20	France	81.8
+21	Norway	81.8
+22	Spain	81.7
+23	Austria	81.5
+24	Anguilla	81.4
+25	Netherlands	81.3
+26	Bermuda	81.3
+27	Isle of Man	81.2
+28	New Zealand	81.2
+29	Cayman Islands	81.2
+30	Belgium	81
+31	Finland	80.9
+32	Ireland	80.8
+33	United Kingdom	80.7
+34	Germany	80.7
+35	Greece	80.5
+36	Saint Pierre and Miquelon	80.5
+37	Malta	80.4
+38	Faroe Islands	80.4
+39	European Union	80.2
+40	Taiwan	80.1
+41	Virgin Islands	80
+42	United States	79.8
+43	Turks and Caicos Islands	79.8
+44	Wallis and Futuna	79.7
+45	Saint Helena, Ascension, and Tristan da Cunha	79.5
+46	Gibraltar	79.4
+47	Denmark	79.4
+48	Puerto Rico	79.4
+49	Portugal	79.3
+50	Guam	79.1
+51	Bahrain	78.9
+52	Chile	78.8
+53	Cyprus	78.7
+54	Qatar	78.7
+55	Cuba	78.7
+56	Czechia	78.6
+57	Panama	78.6
+58	Costa Rica	78.6
+59	British Virgin Islands	78.6
+60	Curacao	78.3
+61	Albania	78.3
+62	Slovenia	78.2
+63	Sint Maarten	78.1
+64	Dominican Republic	78.1
+65	Northern Mariana Islands	78
+66	Kuwait	78
+67	Saint Lucia	77.8
+68	New Caledonia	77.7
+69	Lebanon	77.6
+70	Poland	77.6
+71	United Arab Emirates	77.5
+72	French Polynesia	77.2
+73	Uruguay	77.2
+74	Paraguay	77.2
+75	Brunei	77.2
+76	Slovakia	77.1
+77	Argentina	77.1
+78	Dominica	77
+79	Morocco	76.9
+80	Aruba	76.8
+81	Algeria	76.8
+82	Sri Lanka	76.8
+83	Ecuador	76.8
+84	Bosnia and Herzegovina	76.7
+85	Estonia	76.7
+86	Antigua and Barbuda	76.5
+87	Libya	76.5
+88	Georgia	76.2
+89	Macedonia	76.2
+90	Tonga	76.2
+91	Tunisia	76.1
+92	Hungary	75.9
+93	Mexico	75.9
+94	Croatia	75.9
+95	Cook Islands	75.8
+96	Venezuela	75.8
+97	Saint Kitts and Nevis	75.7
+98	Colombia	75.7
+99	Maldives	75.6
+100	Mauritius	75.6
+101	China	75.5
+102	Oman	75.5
+103	Serbia	75.5
+104	American Samoa	75.4
+105	Saudi Arabia	75.3
+106	Barbados	75.3
+107	Saint Vincent and the Grenadines	75.3
+108	Solomon Islands	75.3
+109	Romania	75.1
+110	Malaysia	75
+111	West Bank	75
+112	Iraq	74.9
+113	Lithuania	74.9
+114	Syria	74.9
+115	Turkey	74.8
+116	Thailand	74.7
+117	El Salvador	74.7
+118	Seychelles	74.7
+119	Jordan	74.6
+120	Armenia	74.6
+121	Bulgaria	74.5
+122	Latvia	74.5
+123	Montserrat	74.4
+124	Grenada	74.3
+125	Gaza Strip	73.9
+126	Uzbekistan	73.8
+127	Brazil	73.8
+128	Samoa	73.7
+129	Peru	73.7
+130	Jamaica	73.6
+131	Vanuatu	73.4
+132	Vietnam	73.4
+133	Bangladesh	73.2
+134	Nicaragua	73.2
+135	Palau	73.1
+136	Marshall Islands	73.1
+137	Micronesia, Federated States of	72.9
+138	Trinidad and Tobago	72.9
+139	Belarus	72.7
+140	Fiji	72.7
+141	Indonesia	72.7
+142	Egypt	72.7
+143	Azerbaijan	72.5
+144	Greenland	72.4
+145	Bahamas, The	72.4
+146	Guatemala	72.3
+147	Suriname	72.2
+148	Cabo Verde	72.1
+149	Ukraine	71.8
+150	Iran	71.4
+151	Honduras	71.1
+152	Kazakhstan	70.8
+153	Russia	70.8
+154	Moldova	70.7
+155	Nepal	70.7
+156	Kyrgyzstan	70.7
+157	Korea, North	70.4
+158	Turkmenistan	70.1
+159	Bhutan	70.1
+160	Mongolia	69.6
+161	Philippines	69.2
+162	Bolivia	69.2
+163	Belize	68.7
+164	India	68.5
+165	Guyana	68.4
+166	Timor-Leste	68.1
+167	Pakistan	67.7
+168	Tajikistan	67.7
+169	Papua New Guinea	67.2
+170	Nauru	67.1
+171	Burma	66.6
+172	Ghana	66.6
+173	Tuvalu	66.5
+174	Kiribati	66.2
+175	Madagascar	65.9
+176	Yemen	65.5
+177	Togo	65
+178	Gambia, The	64.9
+179	Sao Tome and Principe	64.9
+180	Eritrea	64.9
+181	Cambodia	64.5
+182	Laos	64.3
+183	Equatorial Guinea	64.2
+184	Comoros	64.2
+185	Sudan	64.1
+186	Kenya	64
+187	Haiti	63.8
+188	Namibia	63.6
+189	Djibouti	63.2
+190	South Africa	63.1
+191	Western Sahara	63
+192	Mauritania	63
+193	Tanzania	62.2
+194	Ethiopia	62.2
+195	Benin	61.9
+196	Senegal	61.7
+197	Malawi	61.2
+198	Guinea	60.6
+199	Burundi	60.5
+200	Rwanda	60.1
+201	Congo, Republic of the	59.3
+202	Liberia	59
+203	Cote d'Ivoire	58.7
+204	Cameroon	58.5
+205	Sierra Leone	58.2
+206	Zimbabwe	58
+207	Congo, Democratic Republic of the	57.3
+208	Angola	56
+209	Mali	55.8
+210	Burkina Faso	55.5
+211	Niger	55.5
+212	Uganda	55.4
+213	Botswana	54.5
+214	Nigeria	53.4
+215	Mozambique	53.3
+216	Lesotho	53
+217	Zambia	52.5
+218	Somalia	52.4
+219	Central African Republic	52.3
+220	Gabon	52.1
+221	Swaziland	51.6
+222	Afghanistan	51.3
+223	Guinea-Bissau	50.6
+224	Chad	50.2

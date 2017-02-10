@@ -1,0 +1,227 @@
+rank	country	value
+1	Niger	44.8
+2	Mali	44.4
+3	Uganda	43.4
+4	Zambia	41.8
+5	Burundi	41.7
+6	Burkina Faso	41.6
+7	Malawi	41.3
+8	Somalia	40
+9	Angola	38.6
+10	Mozambique	38.3
+11	Afghanistan	38.3
+12	Nigeria	37.3
+13	Ethiopia	36.9
+14	Sierra Leone	36.7
+15	South Sudan	36.2
+16	Chad	36.1
+17	Tanzania	36
+18	Cameroon	35.8
+19	Benin	35.5
+20	Guinea	35.4
+21	Congo, Republic of the	35.1
+22	Central African Republic	34.7
+23	Gabon	34.3
+24	Congo, Democratic Republic of the	34.2
+25	Senegal	34
+26	Liberia	33.9
+27	Timor-Leste	33.8
+28	Togo	33.7
+29	Sao Tome and Principe	33.3
+30	Rwanda	33.3
+31	Guinea-Bissau	32.9
+32	Equatorial Guinea	32.8
+33	Gaza Strip	32.3
+34	Madagascar	32.1
+35	Zimbabwe	31.9
+36	Iraq	30.9
+37	Mauritania	30.9
+38	Ghana	30.8
+39	Egypt	30.3
+40	Eritrea	30.1
+41	Gambia, The	30.1
+42	Western Sahara	29.8
+43	Yemen	29.2
+44	Sudan	28.5
+45	Cote d'Ivoire	28.2
+46	Namibia	27.9
+47	Comoros	26.9
+48	West Bank	26.7
+49	Jordan	25.5
+50	Solomon Islands	25.3
+51	Kenya	25.1
+52	Lesotho	25.1
+53	Marshall Islands	25
+54	Vanuatu	24.5
+55	Guatemala	24.5
+56	Nauru	24.4
+57	Oman	24.3
+58	Swaziland	24.3
+59	Belize	24.3
+60	Papua New Guinea	24
+61	Philippines	24
+62	Laos	23.9
+63	Tajikistan	23.8
+64	Tuvalu	23.8
+65	Djibouti	23.6
+66	Cambodia	23.4
+67	Haiti	23.3
+68	Algeria	23
+69	American Samoa	22.9
+70	Honduras	22.8
+71	Tonga	22.6
+72	Kyrgyzstan	22.6
+73	Bolivia	22.4
+74	Pakistan	22.3
+75	Syria	21.7
+76	Kiribati	21.3
+77	Botswana	20.7
+78	Samoa	20.6
+79	South Africa	20.5
+80	Micronesia, Federated States of	20.3
+81	Cabo Verde	20.2
+82	Nepal	19.9
+83	Kuwait	19.6
+84	Mongolia	19.6
+85	Malaysia	19.4
+86	India	19.3
+87	Turkmenistan	19.3
+88	Venezuela	19.2
+89	Bangladesh	19
+90	Fiji	19
+91	Kazakhstan	18.7
+92	Dominican Republic	18.6
+93	Mexico	18.5
+94	Saudi Arabia	18.4
+95	Israel	18.3
+96	Burma	18.2
+97	Ecuador	18.2
+98	Panama	18.1
+99	Jamaica	18
+100	Morocco	18
+101	Peru	18
+102	Nicaragua	17.9
+103	Iran	17.8
+104	Libya	17.8
+105	Bhutan	17.5
+106	Brunei	17.2
+107	Northern Mariana Islands	17.2
+108	Argentina	17
+109	Uzbekistan	16.9
+110	Guam	16.7
+111	Paraguay	16.5
+112	Tunisia	16.4
+113	Indonesia	16.4
+114	Colombia	16.3
+115	El Salvador	16.3
+116	Azerbaijan	16.2
+117	Turkey	16
+118	Suriname	16
+119	Maldives	16
+120	Antigua and Barbuda	15.8
+121	Grenada	15.8
+122	Costa Rica	15.7
+123	Turks and Caicos Islands	15.7
+124	Vietnam	15.7
+125	Guyana	15.5
+126	Sri Lanka	15.5
+127	Bahamas, The	15.4
+128	United Arab Emirates	15.3
+129	New Caledonia	15.2
+130	Dominica	15.2
+131	French Polynesia	15
+132	Korea, North	14.6
+133	Ireland	14.5
+134	Lebanon	14.4
+135	Greenland	14.4
+136	Brazil	14.3
+137	Cook Islands	14.1
+138	Gibraltar	14.1
+139	Faroe Islands	14
+140	Seychelles	13.9
+141	Curacao	13.8
+142	Iceland	13.8
+143	Chile	13.7
+144	Bahrain	13.5
+145	Saint Lucia	13.5
+146	Saint Vincent and the Grenadines	13.4
+147	Saint Kitts and Nevis	13.3
+148	New Zealand	13.3
+149	Wallis and Futuna	13.3
+150	Armenia	13.3
+151	Mauritius	13.1
+152	Trinidad and Tobago	13.1
+153	Albania	13.1
+154	Sint Maarten	13.1
+155	Uruguay	13
+156	Anguilla	12.7
+157	Aruba	12.5
+158	Georgia	12.5
+159	United States	12.5
+160	China	12.4
+161	France	12.3
+162	Norway	12.2
+163	Australia	12.1
+164	Jersey	12.1
+165	United Kingdom	12.1
+166	Cayman Islands	12.1
+167	Sweden	12
+168	Barbados	11.8
+169	Moldova	11.8
+170	Macedonia	11.5
+171	Belgium	11.4
+172	Luxembourg	11.4
+173	Cyprus	11.4
+174	Russia	11.3
+175	Bermuda	11.3
+176	Palau	11.2
+177	Thailand	11.1
+178	British Virgin Islands	11
+179	Isle of Man	11
+180	Montserrat	11
+181	Netherlands	10.9
+182	Falkland Islands (Islas Malvinas)	10.9
+183	Cuba	10.8
+184	Puerto Rico	10.8
+185	Finland	10.7
+186	Ukraine	10.5
+187	Belarus	10.5
+188	Switzerland	10.5
+189	Liechtenstein	10.4
+190	Denmark	10.4
+191	Estonia	10.3
+192	Canada	10.3
+193	Montenegro	10.2
+194	Virgin Islands	10.2
+195	Malta	10.1
+196	Lithuania	10
+197	Latvia	9.9
+198	Slovakia	9.8
+199	Guernsey	9.8
+200	Saint Helena, Ascension, and Tristan da Cunha	9.7
+201	Qatar	9.7
+202	Poland	9.6
+203	Czechia	9.5
+204	Austria	9.5
+205	Spain	9.4
+206	Hong Kong	9.1
+207	Hungary	9.1
+208	Portugal	9.1
+209	Romania	9
+210	Croatia	9
+211	Serbia	9
+212	Bulgaria	8.8
+213	Bosnia and Herzegovina	8.8
+214	Macau	8.8
+215	Italy	8.7
+216	San Marino	8.6
+217	Germany	8.5
+218	Greece	8.5
+219	Taiwan	8.4
+220	Korea, South	8.4
+221	Singapore	8.4
+222	Slovenia	8.3
+223	Andorra	7.8
+224	Japan	7.8
+225	Saint Pierre and Miquelon	7.2
+226	Monaco	6.6

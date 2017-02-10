@@ -1,0 +1,231 @@
+rank	country	value
+1	Qatar	129700
+2	Luxembourg	102000
+3	Macau	96100
+4	Liechtenstein	89400
+5	Singapore	87100
+6	Bermuda	85700
+7	Isle of Man	83100
+8	Brunei	79700
+9	Monaco	78700
+10	Kuwait	71300
+11	Ireland	69400
+12	Norway	69300
+13	United Arab Emirates	67700
+14	Sint Maarten	66800
+15	San Marino	65300
+16	Switzerland	59400
+17	Hong Kong	58100
+18	United States	57300
+19	Jersey	57000
+20	Falkland Islands (Islas Malvinas)	55400
+21	Saudi Arabia	54100
+22	Guernsey	52300
+23	Netherlands	50800
+24	Bahrain	50300
+25	Sweden	49700
+26	Australia	48800
+27	Germany	48200
+28	Iceland	48100
+29	Austria	47900
+30	Taiwan	47800
+31	Denmark	46600
+32	Canada	46200
+33	Belgium	44900
+34	Cayman Islands	43800
+35	Oman	43700
+36	Gibraltar	43000
+37	United Kingdom	42500
+38	France	42400
+39	British Virgin Islands	42300
+40	Finland	41800
+41	Japan	38900
+42	New Caledonia	38800
+43	Equatorial Guinea	38700
+44	Malta	37900
+45	Korea, South	37900
+46	Greenland	37900
+47	European Union	37800
+48	Puerto Rico	37700
+49	Andorra	37200
+50	New Zealand	37100
+51	Faroe Islands	36600
+52	Spain	36500
+53	Italy	36300
+54	Virgin Islands	36100
+55	Saint Pierre and Miquelon	34900
+56	Israel	34800
+57	Cyprus	34400
+58	Czechia	33200
+59	Slovenia	32000
+60	Trinidad and Tobago	31900
+61	Slovakia	31200
+62	Guam	30500
+63	Lithuania	29900
+64	Estonia	29500
+65	Turks and Caicos Islands	29100
+66	Portugal	28500
+67	Seychelles	28000
+68	Poland	27700
+69	Hungary	27200
+70	Malaysia	27200
+71	Greece	26800
+72	French Polynesia	26100
+73	Russia	26100
+74	Kazakhstan	25700
+75	Latvia	25700
+76	Saint Kitts and Nevis	25500
+77	Aruba	25300
+78	Bahamas, The	24600
+79	Antigua and Barbuda	24100
+80	Chile	24000
+81	Panama	22800
+82	Croatia	22400
+83	Romania	22300
+84	Uruguay	21600
+85	Turkey	21100
+86	Mauritius	20500
+87	Argentina	20200
+88	Bulgaria	20100
+89	Gabon	19300
+90	Saint Martin	19300
+91	Mexico	18900
+92	Lebanon	18500
+93	Iran	18100
+94	Azerbaijan	17700
+95	Belarus	17500
+96	Turkmenistan	17300
+97	Barbados	17200
+98	Montenegro	17000
+99	Botswana	16900
+100	Thailand	16800
+101	Iraq	16500
+102	Costa Rica	16100
+103	Dominican Republic	15900
+104	China	15400
+105	Palau	15300
+106	Maldives	15300
+107	Suriname	15200
+108	Brazil	15200
+109	Venezuela	15100
+110	Curacao	15000
+111	Algeria	15000
+112	Nauru	14800
+113	Macedonia	14500
+114	Libya	14200
+115	Colombia	14200
+116	Serbia	14200
+117	Grenada	14100
+118	Northern Mariana Islands	13300
+119	South Africa	13200
+120	American Samoa	13000
+121	Peru	13000
+122	Cook Islands	12300
+123	Mongolia	12200
+124	Anguilla	12200
+125	Egypt	12100
+126	Saint Lucia	12000
+127	Albania	11900
+128	Namibia	11800
+129	Tunisia	11700
+130	Indonesia	11700
+131	Cuba	11600
+132	Dominica	11400
+133	Saint Vincent and the Grenadines	11300
+134	Sri Lanka	11200
+135	Jordan	11100
+136	Bosnia and Herzegovina	11000
+137	Ecuador	11000
+138	Georgia	10100
+139	Kosovo	10000
+140	Swaziland	9800
+141	Paraguay	9400
+142	Fiji	9400
+143	Jamaica	9000
+144	El Salvador	8900
+145	Armenia	8900
+146	Montserrat	8500
+147	Morocco	8400
+148	Belize	8200
+149	Ukraine	8200
+150	Bhutan	8100
+151	Guatemala	7900
+152	Guyana	7900
+153	Saint Helena, Ascension, and Tristan da Cunha	7800
+154	Philippines	7700
+155	Bolivia	7200
+156	Congo, Republic of the	6800
+157	Angola	6800
+158	Cabo Verde	6700
+159	India	6700
+160	Uzbekistan	6500
+161	Vietnam	6400
+162	Burma	6000
+163	Nigeria	5900
+164	Niue	5800
+165	Laos	5700
+166	Samoa	5400
+167	Honduras	5300
+168	Tonga	5300
+169	Nicaragua	5300
+170	Moldova	5200
+171	Pakistan	5100
+172	Sudan	4500
+173	Mauritania	4400
+174	Ghana	4400
+175	West Bank	4300
+176	Timor-Leste	4200
+177	Bangladesh	3900
+178	Zambia	3900
+179	Wallis and Futuna	3800
+180	Cambodia	3700
+181	Cote d'Ivoire	3600
+182	Kyrgyzstan	3500
+183	Tuvalu	3500
+184	Papua New Guinea	3500
+185	Kenya	3400
+186	Djibouti	3400
+187	Cameroon	3300
+188	Marshall Islands	3300
+189	Sao Tome and Principe	3300
+190	Tanzania	3100
+191	Lesotho	3100
+192	Micronesia, Federated States of	3000
+193	Tajikistan	3000
+194	Syria	2900
+195	Vanuatu	2600
+196	Senegal	2600
+197	Chad	2600
+198	Yemen	2500
+199	Western Sahara	2500
+200	Nepal	2500
+201	Mali	2300
+202	Benin	2200
+203	Uganda	2100
+204	Zimbabwe	2000
+205	Solomon Islands	2000
+206	Afghanistan	2000
+207	Ethiopia	1900
+208	Rwanda	1900
+209	Haiti	1800
+210	Burkina Faso	1800
+211	Korea, North	1800
+212	Kiribati	1800
+213	South Sudan	1700
+214	Gambia, The	1700
+215	Sierra Leone	1700
+216	Guinea-Bissau	1600
+217	Madagascar	1500
+218	Comoros	1500
+219	Togo	1500
+220	Eritrea	1300
+221	Guinea	1300
+222	Mozambique	1200
+223	Niger	1100
+224	Malawi	1100
+225	Tokelau	1000
+226	Liberia	900
+227	Congo, Democratic Republic of the	800
+228	Burundi	800
+229	Central African Republic	700
+230	Somalia	400

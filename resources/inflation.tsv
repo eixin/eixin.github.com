@@ -1,0 +1,228 @@
+rank	country	value
+1	Somalia	-71.1
+2	Northern Mariana Islands	-2.5
+3	Saint Kitts and Nevis	-1.1
+4	Romania	-1.1
+5	Croatia	-1
+6	Lebanon	-1
+7	Aruba	-0.8
+8	Timor-Leste	-0.8
+9	Singapore	-0.8
+10	Bosnia and Herzegovina	-0.8
+11	Jordan	-0.8
+12	Poland	-0.8
+13	Bulgaria	-0.7
+14	Israel	-0.5
+15	Seychelles	-0.5
+16	Armenia	-0.4
+17	Switzerland	-0.4
+18	Latvia	-0.4
+19	Spain	-0.3
+20	Saint Vincent and the Grenadines	-0.3
+21	Slovakia	-0.3
+22	Cyprus	-0.3
+23	Anguilla	-0.3
+24	Mali	-0.3
+25	Slovenia	-0.2
+26	Brunei	-0.2
+27	Italy	-0.2
+28	Liechtenstein	-0.2
+29	Puerto Rico	-0.2
+30	Greece	-0.2
+31	Japan	-0.1
+32	Luxembourg	-0.1
+33	Macedonia	-0.1
+34	Saint Lucia	0.1
+35	Hungary	0.1
+36	Gaza Strip	0.1
+37	European Union	0.1
+38	Thailand	0.2
+39	Netherlands	0.2
+40	Kosovo	0.2
+41	Ireland	0.2
+42	Costa Rica	0.3
+43	Estonia	0.3
+44	France	0.3
+45	Finland	0.4
+46	Germany	0.4
+47	Denmark	0.4
+48	Montserrat	0.5
+49	Montenegro	0.5
+50	Czechia	0.5
+51	Grenada	0.5
+52	United Kingdom	0.5
+53	New Zealand	0.6
+54	San Marino	0.6
+55	Laos	0.7
+56	Cabo Verde	0.7
+57	Marshall Islands	0.7
+58	Guyana	0.8
+59	Portugal	0.8
+60	Korea, South	0.8
+61	Sweden	0.8
+62	Austria	0.9
+63	Belize	0.9
+64	Panama	1
+65	New Caledonia	1
+66	Benin	1
+67	Bahamas, The	1
+68	Andorra	1.1
+69	British Virgin Islands	1.1
+70	Serbia	1.1
+71	Niger	1.1
+72	Mauritius	1.1
+73	Gabon	1.1
+74	French Polynesia	1.1
+75	El Salvador	1.1
+76	Tonga	1.2
+77	Albania	1.2
+78	Comoros	1.2
+79	Falkland Islands (Islas Malvinas)	1.2
+80	Bermuda	1.2
+81	West Bank	1.2
+82	Cote d'Ivoire	1.2
+83	United States	1.3
+84	Barbados	1.3
+85	Taiwan	1.3
+86	Malta	1.3
+87	Australia	1.4
+88	Cayman Islands	1.4
+89	Dominica	1.4
+90	Burkina Faso	1.4
+91	Guinea-Bissau	1.5
+92	Kiribati	1.5
+93	Lithuania	1.5
+94	Monaco	1.5
+95	Zimbabwe	1.6
+96	Antigua and Barbuda	1.6
+97	Congo, Democratic Republic of the	1.6
+98	Canada	1.6
+99	Belgium	1.6
+100	Senegal	1.6
+101	Philippines	1.7
+102	Greenland	1.8
+103	Guam	1.8
+104	Morocco	1.8
+105	Micronesia, Federated States of	1.9
+106	Iceland	1.9
+107	Dominican Republic	1.9
+108	Palau	2
+109	Samoa	2
+110	Malaysia	2
+111	Georgia	2
+112	Oman	2
+113	Fiji	2.1
+114	Maldives	2.1
+115	American Samoa	2.1
+116	Ecuador	2.1
+117	Turks and Caicos Islands	2.2
+118	Togo	2.2
+119	Cook Islands	2.2
+120	China	2.3
+121	Congo, Republic of the	2.3
+122	Faroe Islands	2.3
+123	Solomon Islands	2.4
+124	Mongolia	2.4
+125	Iraq	2.4
+126	Cameroon	2.4
+127	Jamaica	2.5
+128	Gibraltar	2.5
+129	Hong Kong	2.6
+130	Curacao	2.6
+131	Vanuatu	2.7
+132	Mexico	2.7
+133	Wallis and Futuna	2.8
+134	Cambodia	2.8
+135	Vietnam	2.8
+136	Honduras	2.9
+137	Bhutan	2.9
+138	Kyrgyzstan	2.9
+139	Djibouti	3
+140	Virgin Islands	3.1
+141	Equatorial Guinea	3.1
+142	Kuwait	3.3
+143	Macau	3.3
+144	Central African Republic	3.3
+145	Guernsey	3.4
+146	Peru	3.4
+147	United Arab Emirates	3.4
+148	Botswana	3.4
+149	Mauritania	3.5
+150	Tuvalu	3.5
+151	Norway	3.5
+152	Bahrain	3.5
+153	Trinidad and Tobago	3.7
+154	Pakistan	3.7
+155	Jersey	3.7
+156	Tunisia	3.8
+157	Qatar	3.8
+158	Indonesia	3.8
+159	Chad	3.8
+160	Bolivia	3.9
+161	Niue	4
+162	Saint Helena, Ascension, and Tristan da Cunha	4
+163	Sint Maarten	4
+164	Chile	4.1
+165	Nicaragua	4.1
+166	Sri Lanka	4.3
+167	Paraguay	4.3
+168	Guatemala	4.3
+169	Saudi Arabia	4.4
+170	Afghanistan	4.5
+171	Saint Pierre and Miquelon	4.5
+172	Cuba	4.5
+173	Rwanda	4.6
+174	Isle of Man	5
+175	Sao Tome and Principe	5.1
+176	Tanzania	5.2
+177	Bangladesh	5.6
+178	India	5.6
+179	Uganda	5.6
+180	Kenya	6.1
+181	Liberia	6.3
+182	Papua New Guinea	6.3
+183	South Africa	6.5
+184	Burundi	6.5
+185	Algeria	6.7
+186	Namibia	6.8
+187	Burma	7
+188	Sierra Leone	7.1
+189	Russia	7.2
+190	Moldova	7.4
+191	Gambia, The	7.4
+192	Colombia	7.8
+193	Guinea	7.9
+194	Tajikistan	8
+195	Iran	8
+196	Turkey	8
+197	Nauru	8
+198	Lesotho	8.3
+199	Brazil	8.4
+200	Swaziland	8.8
+201	Ethiopia	9.1
+202	Nepal	9.1
+203	Madagascar	9.2
+204	Uruguay	10.2
+205	Turkmenistan	11
+206	Azerbaijan	11.3
+207	Uzbekistan	11.5
+208	Eritrea	11.8
+209	Egypt	12.1
+210	Haiti	12.4
+211	Libya	13
+212	Ukraine	13.5
+213	Belarus	14
+214	Kazakhstan	14.6
+215	Nigeria	15.3
+216	Mozambique	17.1
+217	Sudan	17.6
+218	Ghana	17.8
+219	Zambia	20.7
+220	Malawi	23.5
+221	Angola	26.9
+222	Yemen	31.5
+223	Suriname	39
+224	Argentina	42.8
+225	Syria	47.7
+226	South Sudan	
+227	Venezuela	
