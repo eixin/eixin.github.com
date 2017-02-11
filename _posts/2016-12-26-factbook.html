@@ -58,7 +58,7 @@ excerpt: CIA World Factbook
   </style>
   
   <ul>
-    <li>Area</li>
+    <li onclick="loadMap(1)">Area</li>
     <li>Population</li>
     <li>GDP - parity</li>
     <li>GDP - per capita</li>
@@ -76,21 +76,23 @@ excerpt: CIA World Factbook
       width = 900,
       height = 500;
 
-    var descriptors = [{
-      name: "Population", file: "world-population.tsv", 
-      domain: [10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000],
-      colorBegin: "rgb(247,251,255)",
-      colorEnd: "rgb(3,19,43)",
-      colorZero: ""
-    }];
+    var descriptors = [
+      {
+        name: "Population", file: "world-population.tsv", 
+        domain: [10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000],
+        colorBegin: "white",
+        colorMiddle: "#2196F3",
+        colorEnd: "black"
+      },
+      {
+        name: "Area", file: "world-area.tsv", 
+        domain: [10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000],
+        colorBegin: "white",
+        colorMiddle: "#7E57C2",
+        colorEnd: "black"
+      }
+    ];
       
-    var descriptorIndex = 0;
-    var color = d3.scaleThreshold()
-      .domain(descriptors[descriptorIndex].domain)
-      .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,81,156)", "rgb(8,48,107)", "rgb(3,19,43)"]);
-
-    var path = d3.geoPath();
-
 	  var toolTip = d3.select("body").append("div")
       .attr("class", "tooltip")
       .style("opacity", 0);
@@ -112,8 +114,6 @@ excerpt: CIA World Factbook
       .attr("height", height - margin.top - margin.bottom)
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	  
-    legend(color);
-	
     var projection = d3.geoMercator()
       .scale(143)
       .translate([width / 2, height / 1.5]);
@@ -138,9 +138,13 @@ excerpt: CIA World Factbook
       map = root.append("g")
         .attr("class", "countries")
       
+      loadMap(0);
+    }
+    
+    function loadMap(index) {
       queue()
-        .defer(d3.tsv, "/resources/world-population.tsv")
-        .await(updateMap);
+        .defer(d3.tsv, "/resources/" + descriptors[index].file)
+        .await(function(e, d) { return updateMap(e, d, descriptors[index]) });      
     }
     
     function legend(scale) {
@@ -171,7 +175,7 @@ excerpt: CIA World Factbook
       var marginTop = 200;
 	  
       legend.selectAll(".cell-color")
-        .data(color.range())
+        .data(scale.range())
     	  .enter()
         .append("rect")
         .attr("class", "cell-color")
@@ -181,7 +185,7 @@ excerpt: CIA World Factbook
         .attr("height", cellHeight);
 		
       legend.selectAll(".cell-text")
-        .data([0].concat(color.domain()))
+        .data([0].concat(scale.domain()))
     	  .enter()
         .append("text")
         .attr("class", "cell-text")
@@ -189,13 +193,19 @@ excerpt: CIA World Factbook
         .text(function(d) { return formatAbbreviation(d);});
     }
 	
-    function updateMap(error, parameter) {
+    function updateMap(error, parameter, descriptor) {
       var parameterById = {};
       var parameterNames = {};
       
       parameter.forEach(function (d) {
         parameterNames[d.country] = true;
       });
+      
+      var colorInterpolator = d3.interpolateRgbBasis([descriptor.colorBegin, descriptor.colorMiddle, descriptor.colorEnd]);
+      
+      var color = d3.scaleThreshold()
+        .domain(descriptor.domain)
+        .range(d3.quantize(colorInterpolator, descriptor.domain.length));
       
       console.log("Countries 1");
       parameter.forEach(function (d) {
@@ -252,7 +262,8 @@ excerpt: CIA World Factbook
           d3.select(this)
             .classed("country-selected", null);
         });
-
+        
+      legend(color);
     }
 
   </script>
