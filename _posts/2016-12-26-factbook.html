@@ -59,7 +59,7 @@ excerpt: CIA World Factbook
   
   <ul>
     <li onclick="loadMap(1)">Area</li>
-    <li>Population</li>
+    <li onclick="loadMap(0)">Population</li>
     <li>GDP - parity</li>
     <li>GDP - per capita</li>
     <li>Birth rate</li>
@@ -86,7 +86,7 @@ excerpt: CIA World Factbook
       },
       {
         name: "Area", file: "world-area.tsv", 
-        domain: [10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000],
+        domain: [10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000],
         colorBegin: "white",
         colorMiddle: "#7E57C2",
         colorEnd: "black"
@@ -147,50 +147,58 @@ excerpt: CIA World Factbook
         .await(function(e, d) { return updateMap(e, d, descriptors[index]) });      
     }
     
-    function legend(scale) {
-      var legend = svg.append("g")
-	      .attr("class", "legend")
-	      .attr("transform", "translate(" + (width - margin.right) + "," + margin.top + ")");
-
-      var legendRect = legend.append("rect")
-  	    .style("opacity", 0.8)
-  	    .style("fill", "white")
-  	    .attr("width", margin.right)
-  	    .attr("height", height);
-		
-  	  var textFormatSI = d3.format(".2s");
-      
-      function formatAbbreviation(x) {
-        var s = textFormatSI(x);
-        s = s.replace(".0", ""); // does not make sense
-        switch (s[s.length - 1]) {
-          case "G": return s.slice(0, -1) + "B";
-          case "k": return s.slice(0, -1) + "K";
-        }
-        return s;
+    function formatAbbreviation(x) {
+      var s = textFormatSI(x);
+      s = s.replace(".0", ""); // does not make sense
+      switch (s[s.length - 1]) {
+        case "G": return s.slice(0, -1) + "B";
+        case "k": return s.slice(0, -1) + "K";
       }
+      return s;
+    }
     
+    var legend = svg.append("g")
+      .attr("class", "legend")
+      .attr("transform", "translate(" + (width - margin.right) + "," + margin.top + ")");
+
+    var legendRect = legend.append("rect")
+	    .style("opacity", 0.8)
+	    .style("fill", "white")
+	    .attr("width", margin.right)
+	    .attr("height", height);
+		
+	  var textFormatSI = d3.format(".2s");
+    
+    function updateLegend(scale) {      
       var cellHeight = 10;
       var cellColorWidth = 20;
       var marginTop = 200;
 	  
-      legend.selectAll(".cell-color")
-        .data(scale.range())
-    	  .enter()
+      var cellColorsSelection = legend.selectAll(".cell-color")
+        .data(scale.range());
+      
+    	cellColorsSelection.enter()
         .append("rect")
         .attr("class", "cell-color")
+      .merge(cellColorsSelection)
         .style("fill", function(d) { return d;})
         .attr("transform", function(d, i) { return "translate(5," + (marginTop + i * (cellHeight + 2)) + ")"})
         .attr("width", cellColorWidth)      
         .attr("height", cellHeight);
-		
-      legend.selectAll(".cell-text")
-        .data([0].concat(scale.domain()))
-    	  .enter()
+        
+      cellColorsSelection.exit().remove();
+      
+      var cellTextSelection = legend.selectAll(".cell-text")
+        .data([0].concat(scale.domain()));       // TODO: remove [0] concat
+        
+    	cellTextSelection.enter()
         .append("text")
         .attr("class", "cell-text")
         .attr("transform", function(d, i) { return "translate(30," + (marginTop + 3 + i * (cellHeight + 2)) + ")"})
+      .merge(cellTextSelection)
         .text(function(d) { return formatAbbreviation(d);});
+      
+      cellTextSelection.exit().remove();
     }
 	
     function updateMap(error, parameter, descriptor) {
@@ -231,14 +239,16 @@ excerpt: CIA World Factbook
   		  }
   	  });
       
-      map
+      var countriesSelection = map
         .selectAll(".country")
-        .data(countries)
-        .enter()
+        .data(countries);
+      
+      countriesSelection.enter()
         .append("path")
         .attr("class", "country")
         .attr("d", path)
         .attr("r_id", function(d) { return d.id; })
+      .merge(countriesSelection)
         .style("fill", function (d) { var entry = parameterById[d.id]; return color(entry ? entry.value : 0); })
         .on('mouseover', function (d) {		  
     		  if (d.country) {
@@ -263,7 +273,7 @@ excerpt: CIA World Factbook
             .classed("country-selected", null);
         });
         
-      legend(color);
+      updateLegend(color);
     }
 
   </script>
