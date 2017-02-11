@@ -57,6 +57,15 @@ excerpt: CIA World Factbook
 	
   </style>
   
+  <ul>
+    <li>Area</li>
+    <li>Population</li>
+    <li>GDP - parity</li>
+    <li>GDP - per capita</li>
+    <li>Birth rate</li>
+    <li>Death rate</li>
+  </ul>
+  
   <script src="http://d3js.org/d3.v4.min.js"></script>
   <script src="http://d3js.org/queue.v1.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -67,8 +76,17 @@ excerpt: CIA World Factbook
       width = 900,
       height = 500;
 
+    var descriptors = [{
+      name: "Population", file: "world-population.tsv", 
+      domain: [10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000],
+      colorBegin: "rgb(247,251,255)",
+      colorEnd: "rgb(3,19,43)",
+      colorZero: ""
+    }];
+      
+    var descriptorIndex = 0;
     var color = d3.scaleThreshold()
-      .domain([10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000])
+      .domain(descriptors[descriptorIndex].domain)
       .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,81,156)", "rgb(8,48,107)", "rgb(3,19,43)"]);
 
     var path = d3.geoPath();
@@ -85,10 +103,10 @@ excerpt: CIA World Factbook
         map.attr("transform", d3.event.transform);
       }));
     
-    var map = svg
+    var root = svg
       .append('g');
 
-    map.append('rect')
+    root.append('rect')
       .attr('class', 'map')
       .attr("width", width - margin.left - margin.right)
       .attr("height", height - margin.top - margin.bottom)
@@ -104,10 +122,27 @@ excerpt: CIA World Factbook
 
     queue()
       .defer(d3.json, "/resources/world-50m.json")
-      .defer(d3.tsv, "/resources/world-population.tsv")
       .defer(d3.tsv, "/resources/world-country-names.tsv")
-      .await(ready);
+      .await(readyMap);
 
+    var countryNames = {};
+    var countries, neighbors;
+    var map;
+    
+    function readyMap(error, data, names) {
+      names.forEach(function (d) { countryNames[d.name] = d.id; });
+      
+      countries = window.topojson.feature(data, data.objects.countries).features;
+      neighbors = window.topojson.neighbors(data.objects.countries.geometries);
+      
+      map = root.append("g")
+        .attr("class", "countries")
+      
+      queue()
+        .defer(d3.tsv, "/resources/world-population.tsv")
+        .await(updateMap);
+    }
+    
     function legend(scale) {
       var legend = svg.append("g")
 	      .attr("class", "legend")
@@ -154,45 +189,39 @@ excerpt: CIA World Factbook
         .text(function(d) { return formatAbbreviation(d);});
     }
 	
-    function ready(error, data, population, names) {
-      var populationById = {};
-      var countryNames = {};
-      var populationNames = {};
+    function updateMap(error, parameter) {
+      var parameterById = {};
+      var parameterNames = {};
       
-      names.forEach(function (d) { countryNames[d.name] = d.id; });
-      population.forEach(function (d) {
-        populationNames[d.country] = true;
+      parameter.forEach(function (d) {
+        parameterNames[d.country] = true;
       });
       
       console.log("Countries 1");
-      population.forEach(function (d) {
+      parameter.forEach(function (d) {
         if (!countryNames[d.country]) {
           console.log(d.country);
         }
       });
 
-      population.forEach(function (d) { populationById[countryNames[d.country]] = { country: d.country, value: +d.value}; });
+      parameter.forEach(function (d) { parameterById[countryNames[d.country]] = { country: d.country, value: +d.value}; });
 
       console.log("Countries 2");
-      names.forEach(function (d) {
-        if (!populationNames[d.name]) {
+      Object.keys(countryNames).forEach(function (d) {
+        if (!parameterNames[d.name]) {
           console.log(d.name);
         }
       });
       
-      var countries = window.topojson.feature(data, data.objects.countries).features,
-          neighbors = window.topojson.neighbors(data.objects.countries.geometries);
-
   	  countries.forEach(function (c) {
-  		  var entry = populationById[c.id];
+  		  var entry = parameterById[c.id];
   		  if (entry) {
   		    c.value = entry.value;
-  			c.country = entry.country;
+  			  c.country = entry.country;
   		  }
   	  });
-
-      map.append("g")
-        .attr("class", "countries")
+      
+      map
         .selectAll(".country")
         .data(countries)
         .enter()
@@ -200,7 +229,7 @@ excerpt: CIA World Factbook
         .attr("class", "country")
         .attr("d", path)
         .attr("r_id", function(d) { return d.id; })
-        .style("fill", function (d) { var entry = populationById[d.id]; return color(entry ? entry.value : 0); })
+        .style("fill", function (d) { var entry = parameterById[d.id]; return color(entry ? entry.value : 0); })
         .on('mouseover', function (d) {		  
     		  if (d.country) {
     	  		  toolTip.transition()
