@@ -55,18 +55,32 @@ excerpt: CIA World Factbook
   	  pointer-events: none;
   	}
 	
+    article ul {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+    
+    article li {
+      display: inline;      
+      border-left: 2px solid grey;
+      padding: 0 8px;
+    }
+    
+    article li:first-child {
+      border: none;
+    }
   </style>
   
-  <ul>
-    <li onclick="loadMap(1)">Area</li>
-    <li onclick="loadMap(0)">Population</li>
-    <li>GDP - parity</li>
-    <li>GDP - per capita</li>
-    <li>Birth rate</li>
-    <li>Death rate</li>
+  <ul id="list">
   </ul>
   
-  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+  <!--<script src="http://d3js.org/d3.v4.js"></script>-->
   <script src="http://d3js.org/queue.v1.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="/scripts/factbook.js"></script>
+  <script type="text/javascript">
+  renderList(document.getElementById("list"));
+  </script>
+  

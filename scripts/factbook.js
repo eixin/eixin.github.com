@@ -6,6 +6,13 @@ var margin = { top: 0, right: 60, bottom: 0, left: 0 },
 
 var descriptors = [
   {
+    name: "Area", file: "world-area.tsv", 
+    domain: [10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000],
+    colorBegin: "white",
+    colorMiddle: "#7E57C2",
+    colorEnd: "black"
+  },
+  {
     name: "Population", file: "world-population.tsv", 
     domain: [10000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1500000000],
     colorBegin: "white",
@@ -13,12 +20,75 @@ var descriptors = [
     colorEnd: "black"
   },
   {
-    name: "Area", file: "world-area.tsv", 
-    domain: [10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000],
+    name: "GDP - parity", file: "gdp-ppp.tsv", 
+    domain: [1e7, 1e8, 1e9, 1e10, 1e11, 1e12, 1e13, 5e13],
     colorBegin: "white",
-    colorMiddle: "#7E57C2",
+    colorMiddle: "#F44336",
     colorEnd: "black"
-  }
+  },
+  {
+    name: "GPD - per capita", file: "gdp-percapita.tsv", 
+    domain: [500, 1000, 5000, 10000, 20000, 30000, 50000, 100000, 150000],
+    colorBegin: "white",
+    colorMiddle: "#4CAF50",
+    colorEnd: "black"
+  },
+  {
+    name: "GPD - real growth", file: "gdp-real-growth.tsv", 
+    domain: [-8, -4, -2, -1, 0, 1, 2, 4, 8],
+    colorBegin: "red",
+    colorMiddle: "#C0C0C0",
+    colorEnd: "green"
+  },
+  {
+    name: "Industry growth", file: "industry-growth.tsv", 
+    domain: [-8, -4, -2, -1, 0, 1, 2, 4, 8],
+    colorBegin: "red",
+    colorMiddle: "#C0C0C0",
+    colorEnd: "green"
+  },
+  {
+    name: "Inflation", file: "inflation.tsv", 
+    domain: [-4, -3, -2, -1, 0, 2, 4, 10, 20],
+    colorBegin: "blue",
+    colorMiddle: "white",
+    colorEnd: "red"
+  },
+  {
+    name: "Birth rate", file: "birth-rate.tsv", 
+    domain: [7, 12, 16, 20, 24, 28, 32, 36, 40, 48],
+    colorBegin: "#FFE0B2",
+    colorMiddle: "#FF9800",
+    colorEnd: "#BF360C"
+  },
+  {
+    name: "Death rate", file: "death-rate.tsv", 
+    domain: [2, 4, 6, 8, 10, 12, 14, 16],
+    colorBegin: "white",
+    colorMiddle: "#795548",
+    colorEnd: "black"
+  },
+  {
+    name: "Life expectancy at birth", file: "life-expectancy-birth.tsv", 
+    domain: [55, 60, 65, 70, 75, 80, 85],
+    colorBegin: "#FFE0B2",
+    colorMiddle: "#FF9800",
+    colorEnd: "#BF360C"
+  },
+  {
+    name: "Net migration", file: "net-migration.tsv", 
+    domain: [-16, -8, -4, -2, 0, 2, 4, 8, 16],
+    colorBegin: "red",
+    colorMiddle: "#C0C0C0",
+    colorEnd: "green"
+  },
+  {
+    name: "Unemployment", file: "unemployment.tsv", 
+    domain: [2, 5, 10, 15, 20, 30, 40, 50],
+    colorBegin: "#F8BBD0",
+    colorMiddle: "#AD1457",
+    colorEnd: "black"
+  },
 ];
       
 var toolTip = d3.select("body").append("div")
@@ -115,14 +185,14 @@ function updateLegend(scale) {
     .attr("height", cellHeight);
         
   cellColorsSelection.exit().remove();
-      
+  
   var cellTextSelection = legend.selectAll(".cell-text")
-    .data([0].concat(scale.domain()));       // TODO: remove [0] concat
+    .data(scale.domain());
         
 	cellTextSelection.enter()
     .append("text")
     .attr("class", "cell-text")
-    .attr("transform", function(d, i) { return "translate(30," + (marginTop + 3 + i * (cellHeight + 2)) + ")"})
+    .attr("transform", function(d, i) { return "translate(30," + (marginTop + 3 + (i + 1) * (cellHeight + 2)) + ")"})
   .merge(cellTextSelection)
     .text(function(d) { return formatAbbreviation(d);});
       
@@ -141,7 +211,7 @@ function updateMap(error, parameter, descriptor) {
       
   var color = d3.scaleThreshold()
     .domain(descriptor.domain)
-    .range(d3.quantize(colorInterpolator, descriptor.domain.length));
+    .range(d3.quantize(colorInterpolator, descriptor.domain.length + 1));
       
   console.log("Countries 1");
   parameter.forEach(function (d) {
@@ -202,4 +272,17 @@ function updateMap(error, parameter, descriptor) {
     });
         
   updateLegend(color);
+}
+
+function renderList(el) {
+  for (var i = 0; i < descriptors.length; i++) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    var desc = descriptors[i];
+    a.innerText = desc.name;
+    a.addEventListener("click", loadMap.bind(this, i));
+    a.href = "#" + desc.file;  
+    li.appendChild(a);
+    el.appendChild(li);
+  }
 }
