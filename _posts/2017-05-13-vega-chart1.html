@@ -23,14 +23,14 @@ title: Population chart
   vega.embed("#vis1", "/resources/vega/chart1.json", options, function(error, result) {
     // Callback receiving the View instance and parsed Vega spec
     // result.view is the View, which resides under the '#vis' element
-    var oldRender = result.view.render;
+    /*var oldRender = result.view.render;
     result.view.render = function() {
       oldRender.apply(result.view, arguments);
       d3.select("svg")
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("width", null)
         .attr("height", null);
-    }
+    }*/
   });
 
   /*vega.embed("#vis2", "v_chart_2.json", options, function(error, result) {
