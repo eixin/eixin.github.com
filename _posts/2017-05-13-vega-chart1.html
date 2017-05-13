@@ -25,8 +25,8 @@ title: Population chart
     // result.view is the View, which resides under the '#vis' element
     d3.select("svg")
       .attr("preserveAspectRatio", /*"xMinYMin"*/ "xMidYMid meet")
-      .attr("width", null)
-      .attr("height", null);
+      .attr("width", "auto")
+      .attr("height", "auto");
   });
 
   /*vega.embed("#vis2", "v_chart_2.json", options, function(error, result) {
