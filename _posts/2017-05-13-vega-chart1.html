@@ -28,8 +28,8 @@ title: Population chart
       oldRender.apply(result.view, arguments);
       d3.select("svg")
         .attr("preserveAspectRatio", "xMidYMid meet")
-        .attr("width", screen.width + "px")
-        .attr("height", screen.height + "px");
+        .attr("width", screen.width)
+        .attr("height", screen.height);
     }
   });
 
