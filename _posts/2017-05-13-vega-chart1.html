@@ -11,7 +11,7 @@ title: Population chart
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.14/vega-embed.js"></script>
 
 <div id="vis1" style="width:100%; height:400px;" ></div>
-
+<div id=
 <script type="text/javascript">
   var options = {
   "mode": "vega-lite",
@@ -29,7 +29,8 @@ title: Population chart
       d3.select("svg")
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("width", null)
-        .attr("height", null);
+        .attr("height", null)
+		.style("width", "100%");
     }
   });
 
