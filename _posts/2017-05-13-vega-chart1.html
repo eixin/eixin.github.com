@@ -26,10 +26,10 @@ title: Population chart
     var oldRender = result.view.render;
     result.view.render = function() {
       oldRender.apply(result.view, arguments);
-      d3.select("svg")
+      /*d3.select("svg")
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("width", null)
-        .attr("height", null);
+        .attr("height", null);*/
     }
   });
 
