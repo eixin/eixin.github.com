@@ -1,0 +1,29 @@
+---
+published: false
+---
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-beta.30/vega.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.2/vega-lite.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.14/vega-embed.js"></script>
+
+<div id="vis1"></div>
+
+<script type="text/javascript">
+  var options = {
+  "mode": "vega-lite",
+  "renderer" : "svg",
+  "actions" : {export: false, source: false, editor: false},
+  "config"  : {}
+  }
+
+  vega.embed("#vis1", "v_chart_1.json", options, function(error, result) {
+    // Callback receiving the View instance and parsed Vega spec
+    // result.view is the View, which resides under the '#vis' element
+  });
+
+  /*vega.embed("#vis2", "v_chart_2.json", options, function(error, result) {
+  // Callback receiving the View instance and parsed Vega spec
+  // result.view is the View, which resides under the '#vis' element
+  });*/
+
+</script>
