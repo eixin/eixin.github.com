@@ -2,3 +2,15 @@ _site
 node_modules
 validation-report.json
 validation-status.json
+scripts/untitled.js
+.DS_Store
+.gitignore
+Gemfile.lock
+_posts/.DS_Store
+resources/country-codes.tsv
+scripts/.DS_Store
+scripts/d3.js
+scripts/d3.min.js
+scripts/package.json
+scripts/tsconfig.json
+scripts/untitled.ts
