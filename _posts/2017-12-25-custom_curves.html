@@ -1,0 +1,37 @@
+---
+layout: post
+title: Custom Bezier Curves
+category: Graph
+excerpt: An attempt to make flow map by using custom Bezier curves. Requires ES6-enabled browser
+---
+
+<style>
+    .map {
+        fill: white;
+    }
+
+    .country {
+        fill: gray;
+    }
+
+    /*.centroid {
+        fill: red;
+    }*/
+
+    .flow {
+        fill: rgba(255, 202, 58, 0.40);
+        stroke: rgb(255, 202, 58);
+        stroke-width: 0px;
+    }
+
+</style>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+  <!--<script src="http://d3js.org/d3.v4.js"></script>-->
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="/scripts/custom_curves.js"></script>
+  
+<body onload="main()">
+</body>
+  
