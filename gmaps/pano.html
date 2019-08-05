@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        const KEY = 'AIzaSyBlmRh7z32odmMA6VJNUYDLmbSyUylEs04';
+        const METADATA_URL = 'https://maps.googleapis.com/maps/api/streetview/metadata?' +
+            'key=' + KEY +
+            '&location=';
+
+        const locations = [
+            [52.4506042, 4.8679932, "CAoSLEFGMVFpcE9WNWtZSENzRndaaTJqQ2ZSX2NvOUpOQl9oOFpuSXZlZWJYQ2I5"],
+            [52.4566318, 4.8949339],
+            [53.0313677, 4.7273397],
+        ]
+
+        async function doRequest(location) {
+            let response = await fetch(METADATA_URL + `${location[0]},${location[1]}`);
+            let json = await response.json();
+            console.log(json["pano_id"]);
+        }
+
+        async function doAll() {
+            for (let location of locations) {
+                if (location[2] == null) {
+                    await doRequest(location);
+                }
+            }
+        }
+        doAll();
+
+    </script>
+
+</body>
+
+</html>
